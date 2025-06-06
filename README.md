@@ -1,104 +1,81 @@
-```markdown
+
 # Axiona 🧠✨  
-An interactive AI-powered chatbot application that features dynamic **three.js** animations responding to user activity and integrates **OpenAI** models for natural conversation. Built with **React**, Axiona also leverages **Supabase** to securely manage API keys.
+An interactive AI-powered chatbot with dynamic 3D animations and real-time responses powered by **OpenAI**. Built using **React**, **three.js**, and **Supabase** for secure API key handling.
 
 ---
 
-## 📁 Folder Structure
-
-```
-
-/                       # Root directory
-├── src/                # Source code
-│   ├── components/     # React components
-│   │   ├── Chatbot.js            # Chat interface logic
-│   │   └── ThreeJSAnimation.js   # 3D animation (three.js)
-│   ├── utils/          # Utility functions
-│   │   ├── supabase.js          # Supabase client and key retrieval
-│   │   └── ai-sdk.js            # OpenAI SDK integration
-│   ├── App.js          # Main application logic
-│   └── index.js        # Entry point
-├── public/             # Static assets
-├── package.json        # Project config and dependencies
-└── .env                # Environment variables
-
-````
+## 🔗 Live Demo  
+👉 [Click here to try Axiona Live](https://your-live-link.com)
 
 ---
 
 ## ✨ Features
 
-- 🤖 **AI Chatbot (OpenAI)**: Natural and responsive chat interface using OpenAI's `gpt-4` model via the `ai` SDK.
-- 🎨 **three.js Animation**: A dynamic 3D cube that changes speed and color based on user typing activity.
-- 🔐 **Supabase Integration**: Securely stores and retrieves the OpenAI API key from a Supabase backend.
-- 💬 **Typing Feedback**: Real-time detection of user typing to influence the animation behavior.
-- ⚡ **Fast & Responsive UI**: Built using React with live input handling and chat history.
-- 🌐 **Deployment-Ready**: Clean structure ready for hosting and production builds.
+- 🤖 **AI Chatbot (OpenAI)**: Real-time conversation powered by OpenAI `gpt-4` model.
+- 🎨 **three.js Animation**: Responsive 3D cube reacts to user typing.
+- 🔐 **Supabase Integration**: Secure retrieval of API keys.
+- 💬 **Typing Feedback**: Animation speed and color adjust based on activity.
+- ⚡ **Fast & Responsive**: Built with React, optimized for performance.
+- 🌐 **Production Ready**: Easily deployable structure with .env support.
 
 ---
 
-## 🧰 Technologies Used
+## 🧰 Tech Stack
 
-- **React** – UI library
-- **three.js** – 3D animation rendering
-- **OpenAI (via ai-sdk)** – AI language model integration
-- **Supabase** – Backend-as-a-service for API key storage
-- **Lodash** – Debounce utility
-- **Vite / Babel / CDNs** – Build tools (depending on setup)
+- ⚛️ React
+- 🌐 OpenAI (`ai-sdk`)
+- 🎮 three.js
+- 🔒 Supabase
+- 🧠 Lodash (debounce)
+- ⚡ Vite (or Babel/CDNs depending on setup)
 
 ---
 
-## ⚙️ Setup Instructions
+## 🚀 Getting Started
 
-1. **Clone the Repository**
+### 1️⃣ Clone the Repository
 
-   ```bash
-   git clone https://github.com/your-username/axiona.git
-   cd axiona
+```bash
+git clone https://github.com/your-username/axiona.git
+cd axiona
 ````
 
-2. **Install Dependencies**
+### 2️⃣ Install Dependencies
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-3. **Configure Environment Variables**
+### 3️⃣ Configure Environment Variables
 
-   Create a `.env` file in the root directory:
+Create a `.env` file in the root:
 
-   ```env
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-4. **Run the Application**
+### 4️⃣ Run Locally
 
-   ```bash
-   npm run dev
-   ```
-
----
-
-## 🔑 API Key Handling with Supabase
-
-* API keys are stored in a Supabase table named `api_keys`.
-* The key is fetched on app initialization and used to set up the OpenAI SDK securely.
-* Example fetch:
-
-  ```js
-  const { data } = await supabase.from('api_keys').select('key_value').single();
-  ```
-
-> **Note:** In production, consider securing API access further via Supabase Edge Functions or role-based policies.
+```bash
+npm run dev
+```
 
 ---
 
-## 🧠 Using OpenAI via AI SDK
+## 🔑 Supabase for API Key
 
-* Axiona uses the `@ai-sdk/openai` provider.
+* Table: `api_keys`
+* Field: `key_value`
+* Retrieved securely using `supabase-js`.
 
-Example:
+```js
+const { data } = await supabase.from('api_keys').select('key_value').single();
+```
+
+---
+
+## 🧠 OpenAI via AI SDK
 
 ```js
 import { openai } from '@ai-sdk/openai';
@@ -112,19 +89,16 @@ const { text } = await generateText({
 
 ---
 
-## 🧪 Demo Behavior
+## 🌀 Live Demo Behavior
 
-* 🌀 **Animation Behavior**:
+* ⌨️ When user types:
 
-  * Typing: Cube spins faster and changes color.
-  * Idle: Cube slows down.
+  * Cube spins faster 🌀
+  * Color changes 🌈
 
-* 🗨️ **Chat Example**:
+* 💤 When idle:
 
-  ```
-  You: Hello!
-  AI: Hi! How can I assist you today?
-  ```
+  * Cube slows down 🧊
 
 ---
 
@@ -141,7 +115,6 @@ const { text } = await generateText({
 
 ## 🧾 License
 
-This project is licensed under the MIT License.
+Licensed under the **MIT License**.
 
-```
 
