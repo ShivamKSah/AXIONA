@@ -1,73 +1,147 @@
-# Welcome to your Lovable project
+```markdown
+# Axiona 🧠✨  
+An interactive AI-powered chatbot application that features dynamic **three.js** animations responding to user activity and integrates **OpenAI** models for natural conversation. Built with **React**, Axiona also leverages **Supabase** to securely manage API keys.
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/dc0ea775-6075-43a0-a190-90131af59631
+## 📁 Folder Structure
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/dc0ea775-6075-43a0-a190-90131af59631) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
 ```
 
-**Edit a file directly in GitHub**
+/                       # Root directory
+├── src/                # Source code
+│   ├── components/     # React components
+│   │   ├── Chatbot.js            # Chat interface logic
+│   │   └── ThreeJSAnimation.js   # 3D animation (three.js)
+│   ├── utils/          # Utility functions
+│   │   ├── supabase.js          # Supabase client and key retrieval
+│   │   └── ai-sdk.js            # OpenAI SDK integration
+│   ├── App.js          # Main application logic
+│   └── index.js        # Entry point
+├── public/             # Static assets
+├── package.json        # Project config and dependencies
+└── .env                # Environment variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+````
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## ✨ Features
 
-## What technologies are used for this project?
+- 🤖 **AI Chatbot (OpenAI)**: Natural and responsive chat interface using OpenAI's `gpt-4` model via the `ai` SDK.
+- 🎨 **three.js Animation**: A dynamic 3D cube that changes speed and color based on user typing activity.
+- 🔐 **Supabase Integration**: Securely stores and retrieves the OpenAI API key from a Supabase backend.
+- 💬 **Typing Feedback**: Real-time detection of user typing to influence the animation behavior.
+- ⚡ **Fast & Responsive UI**: Built using React with live input handling and chat history.
+- 🌐 **Deployment-Ready**: Clean structure ready for hosting and production builds.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🧰 Technologies Used
 
-## How can I deploy this project?
+- **React** – UI library
+- **three.js** – 3D animation rendering
+- **OpenAI (via ai-sdk)** – AI language model integration
+- **Supabase** – Backend-as-a-service for API key storage
+- **Lodash** – Debounce utility
+- **Vite / Babel / CDNs** – Build tools (depending on setup)
 
-Simply open [Lovable](https://lovable.dev/projects/dc0ea775-6075-43a0-a190-90131af59631) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## ⚙️ Setup Instructions
 
-Yes, you can!
+1. **Clone the Repository**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+   ```bash
+   git clone https://github.com/your-username/axiona.git
+   cd axiona
+````
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables**
+
+   Create a `.env` file in the root directory:
+
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. **Run the Application**
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🔑 API Key Handling with Supabase
+
+* API keys are stored in a Supabase table named `api_keys`.
+* The key is fetched on app initialization and used to set up the OpenAI SDK securely.
+* Example fetch:
+
+  ```js
+  const { data } = await supabase.from('api_keys').select('key_value').single();
+  ```
+
+> **Note:** In production, consider securing API access further via Supabase Edge Functions or role-based policies.
+
+---
+
+## 🧠 Using OpenAI via AI SDK
+
+* Axiona uses the `@ai-sdk/openai` provider.
+
+Example:
+
+```js
+import { openai } from '@ai-sdk/openai';
+import { generateText } from 'ai';
+
+const { text } = await generateText({
+  model: openai('gpt-4'),
+  prompt: 'Hello! What can you do?',
+});
+```
+
+---
+
+## 🧪 Demo Behavior
+
+* 🌀 **Animation Behavior**:
+
+  * Typing: Cube spins faster and changes color.
+  * Idle: Cube slows down.
+
+* 🗨️ **Chat Example**:
+
+  ```
+  You: Hello!
+  AI: Hi! How can I assist you today?
+  ```
+
+---
+
+## 📦 Dependencies
+
+* `react`, `react-dom`
+* `three`
+* `@supabase/supabase-js`
+* `@ai-sdk/openai`
+* `ai`
+* `lodash`
+
+---
+
+## 🧾 License
+
+This project is licensed under the MIT License.
+
+```
+
