@@ -5,7 +5,7 @@ An interactive AI-powered chatbot with dynamic 3D animations and real-time respo
 ---
 
 ## 🔗 Live Demo  
-👉 [Click here wala likh h jo] (https://axiona-eta.vercel.app/)
+👉 [Click here to try Axiona Live] (https://axiona-eta.vercel.app/)
 
 ---
 
